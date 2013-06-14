@@ -1,0 +1,32 @@
+Version 1:
+
+ * Styling
+   * images
+   * css
+     * web
+     * mobile
+ * Page
+   * Show
+   * Edit 
+ * Sermon
+   * Show
+     * Stream
+     * Download
+   * Edit
+     * Upload
+ * User
+   * isAdmin
+   * auth
+     * password
+ * Security
+   * canEdit
+
+Version 2:
+
+ * Image
+   * Edit 
+     * Upload
+     * Scaling
+ * Auth
+   * facebook login
+   * google login

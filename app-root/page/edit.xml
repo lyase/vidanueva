@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<messages>
+    <message id="name">Name</message>
+    <message id="title">Title</message>
+    <message id="body">Body</message>
+    <message id="name-hint">This decides the url</message>
+    <message id="title-hint">The title of this page</message>
+    <message id="body-hint">The content of this page</message>
+</messages>
