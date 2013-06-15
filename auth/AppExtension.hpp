@@ -20,6 +20,8 @@ public:
     const Services& services;
     UserDatabase& users() { return _users; }
     Wt::Auth::Login& login() { return _login; }
+    // Returns true if the currently logged in user is an admin
+    bool isAdmin();
 };
 
 }

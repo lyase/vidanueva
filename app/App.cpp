@@ -53,13 +53,20 @@ App::App(const Wt::WEnvironment& env, dbo::SqlConnection& db, const Auth::Servic
     t.commit();
 
     internalPathChanged().connect(this, &App::pathChanged);
-    new page::WebView(root(), welcome);
     pathChanged(internalPath());
 }
 
 void App::pathChanged(std::string path) {
     if (path == "/login")
         showLogin();
+
+    dbo::Transaction t(_session);
+    page::pModel welcome = _session.find<page::Model>().where("name = ?").bind("index");
+    if (auth.isAdmin())
+        new page::WebView(root(), welcome);
+    else
+        new page::AdminWebView(root(), welcome);
+
     // TODO: look up pages and sermons here
 }
 

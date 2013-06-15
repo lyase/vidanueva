@@ -2,6 +2,7 @@
 #include <Wt/WText>
 #include <Wt/WTemplate>
 #include <Wt/WTemplateFormView>
+#include <Wt/WInPlaceEdit>
 
 #include "model.hpp"
 
@@ -19,6 +20,18 @@ struct WebView : public Wt::WTemplate {
             bindString("body", model->body);
         }
     }
+};
+
+struct AdminWebView : public Wt::WTemplate {
+    AdminWebView(Wt::WContainerWidget* parent, pModel model) : Wt::WTemplate(parent) {
+        setTemplateText(tr("page-view"));
+        title = new Wt::WInPlaceEdit(model->title);
+        if (model) {
+            bindWidget("title", title);
+            bindString("body", model->body);
+        }
+    }
+    Wt::WInPlaceEdit* title;
 };
 
 }
