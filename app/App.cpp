@@ -15,8 +15,8 @@ namespace vidanueva {
 
 namespace dbo = Wt::Dbo;
 
-App::App(const Wt::WEnvironment& env, dbo::SqlConnection& db, const AuthServices& authServices)
-    : Wt::WApplication(env), _users(_session), authServices(authServices)
+App::App(const Wt::WEnvironment& env, dbo::SqlConnection& db, const Auth::Services& services)
+    : Wt::WApplication(env), auth(_session, services)
 {
     // Configure our messages
     messageResourceBundle().use(appRoot() + "/page/view");
@@ -41,14 +41,14 @@ App::App(const Wt::WEnvironment& env, dbo::SqlConnection& db, const AuthServices
         welcome = _session.add(new page::Model{"index", "Welcome", "To Vidanueva"});
     }
     // Create the admin user if one doesn't exist
-    auto wtUser = users().findWithIdentity(Wt::Auth::Identity::LoginName, "admin");
+    auto wtUser = auth.users().findWithIdentity(Wt::Auth::Identity::LoginName, "admin");
     if (!wtUser.isValid()) {
         log("info") << "Creating admin user";
-        auto wtUser = _users.registerNew();
+        auto wtUser = auth.users().registerNew();
         wtUser.addIdentity(Wt::Auth::Identity::LoginName, "admin");
-        authServices.pword.updatePassword(wtUser, "admin");
-        pUser user = _session.add(new User{"Mister Admin", true});
-        _users.find(wtUser).modify()->setUser(user);
+        auth.services.pword.updatePassword(wtUser, "admin");
+        Auth::pUser user = _session.add(new Auth::User{"Mister Admin", true});
+        auth.users().find(wtUser).modify()->setUser(user);
     }
     t.commit();
 
@@ -65,9 +65,9 @@ void App::pathChanged(std::string path) {
 
 void App::showLogin() {
     log("info") << "Showing dialog";
-    auto loginForm = new Wt::Auth::AuthWidget(authServices.auth, users(), login(), root());
+    auto loginForm = new Wt::Auth::AuthWidget(auth.services.auth, auth.users(), auth.login(), root());
     loginForm->setRegistrationEnabled(false);
-    loginForm->model()->addPasswordAuth(&authServices.pword);
+    loginForm->model()->addPasswordAuth(&auth.services.pword);
     loginForm->processEnvironment();
 }
 

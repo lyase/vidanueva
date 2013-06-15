@@ -5,7 +5,6 @@
 
 #include "model.hpp"
 
-
 namespace vidanueva {
 namespace page {
 

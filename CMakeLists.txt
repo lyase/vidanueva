@@ -24,6 +24,7 @@ set(WT_BASE ${WT} ${WT_HTTP} ${WT_TEST})
 set(WT_ALL ${WT_BASE} ${WT_DBO} ${WT_DBO_POSTGRES})
 
 #add_subdirectory(lib)
+add_subdirectory(auth)
 add_subdirectory(app)
 file(COPY
      app-root 
