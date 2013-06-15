@@ -28,6 +28,9 @@ App::App(const Wt::WEnvironment& env, dbo::SqlConnection& db, const Auth::Servic
         log("info") << "Creating tables";
         _session.createTables();
         _session.execute("CREATE UNIQUE INDEX CONCURRENTLY page_name ON page (name)");
+        _session.execute("ALTER TABLE page ALTER COLUMN title SET NOT NULL");
+        _session.execute("ALTER TABLE page ALTER COLUMN name SET NOT NULL");
+        _session.execute("ALTER TABLE page ALTER COLUMN body SET NOT NULL");
     } catch ( std::exception e ) {
         log("info") << "Table creation failed: " << e.what();
     } catch (...) {
