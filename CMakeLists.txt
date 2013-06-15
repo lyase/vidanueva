@@ -25,9 +25,13 @@ set(WT_ALL ${WT_BASE} ${WT_DBO} ${WT_DBO_POSTGRES})
 
 #add_subdirectory(lib)
 add_subdirectory(app)
-file(COPY app-root DESTINATION .)
-file(COPY doc-root DESTINATION .)
+file(COPY
+     app-root 
+     doc-root 
+     run.sh 
+     debug.sh
+     DESTINATION .)
 
 add_executable(vidanueva main.cpp)
-target_link_libraries(vidanueva app ${WT_ALL})
+target_link_libraries(vidanueva app)
 
