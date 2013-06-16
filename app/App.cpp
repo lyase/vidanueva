@@ -1,5 +1,7 @@
 #include "App.hpp"
 
+#include "MainPage.hpp"
+
 #include "../lib/page/view.hpp"
 #include "../mapTables.hpp"
 
@@ -54,7 +56,12 @@ App::App(const Wt::WEnvironment& env, dbo::SqlConnection& db, const Auth::Servic
         auth.users().find(wtUser).modify()->setUser(user);
     }
     t.commit();
-
+    // Load the style sheets
+    setCssTheme("polished");
+    useStyleSheet("/css/fonts.css");
+    useStyleSheet("/css/layout.css");
+    // Show the main page
+    mainPage = new MainPage(root());
     internalPathChanged().connect(this, &App::pathChanged);
     pathChanged(internalPath());
 }
@@ -66,10 +73,9 @@ void App::pathChanged(std::string path) {
     dbo::Transaction t(_session);
     page::pModel welcome = _session.find<page::Model>().where("name = ?").bind("index");
     if (auth.isAdmin())
-        new page::WebView(root(), welcome);
+        mainPage->setBody(new page::WebView(welcome));
     else
-        new page::AdminWebView(root(), welcome);
-
+        mainPage->setBody(new page::AdminWebView(welcome));
     // TODO: look up pages and sermons here
 }
 

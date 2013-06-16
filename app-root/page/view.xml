@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <messages>
   <message id="page-view">
-      <h1>${title}</h1>
+      <h2>${title}</h2>
       <p>${body}</p>
   </message>
 </messages>

@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'Fauna One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Fauna One'), local('FaunaOne-Regular'), url(FaunaOne-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Londrina Solid';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Londrina Solid'), local('LondrinaSolid-Regular'), url(LondrinaSolid-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Pathway Gothic One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Pathway Gothic One'), local('PathwayGothicOne-Regular'), url(PathwayGothicOne-Regular.ttf) format('truetype');
+}
+
+h1, h2 {
+  font-family: 'Londrina Solid', cursive;
+}
+
+h3 {
+  font-family: 'Pathway Gothic One', sans-serif;
+}
+
+body {
+  font-family: 'Fauna One', serif;
+}

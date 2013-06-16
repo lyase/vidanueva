@@ -18,7 +18,7 @@ struct WebEdit : public Wt::WTemplateFormView {
 };
 
 struct WebView : public Wt::WTemplate {
-    WebView(Wt::WContainerWidget* parent, pModel model) : Wt::WTemplate(parent) {
+    WebView(pModel model, Wt::WContainerWidget* parent=nullptr) : Wt::WTemplate(parent) {
         setTemplateText(tr("page-view"));
         if (model) {
             bindString("title", model->title);
@@ -31,7 +31,7 @@ struct AdminWebView : public Wt::WTemplate {
     pModel model;
     Wt::WInPlaceEdit* title;
 
-    AdminWebView(Wt::WContainerWidget* parent, pModel model) : Wt::WTemplate(parent), model(model) {
+    AdminWebView(pModel model, Wt::WContainerWidget* parent=nullptr) : Wt::WTemplate(parent), model(model) {
         setTemplateText(tr("page-view"));
         title = new Wt::WInPlaceEdit(model->title);
         title->valueChanged().connect(this, &AdminWebView::titleChanged);

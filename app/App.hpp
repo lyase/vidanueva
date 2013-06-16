@@ -7,12 +7,15 @@
 
 namespace vidanueva {
 
+class MainPage;
+
 class App : public Wt::WApplication {
 private:
     Wt::Dbo::Session _session;
     void showLogin();
     void pathChanged(std::string path);
     Auth::AppExtension auth;
+    MainPage* mainPage;
 public:
     App(const Wt::WEnvironment& env, Wt::Dbo::SqlConnection& db, const Auth::Services& services);
     Wt::Dbo::Session& session() { return _session; }
