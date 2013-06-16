@@ -60,6 +60,7 @@ App::App(const Wt::WEnvironment& env, dbo::SqlConnection& db, const Auth::Servic
     setCssTheme("polished");
     useStyleSheet("/css/fonts.css");
     useStyleSheet("/css/layout.css");
+    useStyleSheet("/css/colour.css");
     // Show the main page
     mainPage = new MainPage(root());
     internalPathChanged().connect(this, &App::pathChanged);

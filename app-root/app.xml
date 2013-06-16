@@ -2,7 +2,7 @@
 <messages>
     <message id="password-dialog-title">Login</message>
     <message id="main-template">
-        <div id="header">
+        <div id="header" class="dark">
             <h1>Bienvenido á Iglesia Vida Nueva</h1>
         </div>
         <div id="menu">
