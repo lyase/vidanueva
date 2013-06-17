@@ -31,6 +31,8 @@ file(COPY
      doc-root 
      run.sh 
      debug.sh
+     work-live.sh
+     on-file-change.sh
      DESTINATION .)
 
 add_executable(vidanueva main.cpp)
