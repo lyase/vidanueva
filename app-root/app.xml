@@ -5,13 +5,13 @@
         <div id="header" class="dark">
             <h1>Bienvenido á Iglesia Vida Nueva</h1>
         </div>
-        <div id="menu">
+        <div id="menu" class="med">
             ${menu}
         </div>
-        <div id="body">
+        <div id="body" class="light">
             ${body}
         </div>
-        <div id="footer">
+        <div id="footer" class="dark">
             Copyright Iglesia Cristiana Vida Nueva. 15 River Crescent, Broadbeach Waters QLD 4218 | Teléfono 0415368674 | Fax 07 55799502 144 | Cotlew Street Ashmore 4214 QLD Australia | email: info@vidanueva.org.au | All Rights Reserved.
         </div>
     </message>
