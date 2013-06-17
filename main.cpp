@@ -1,6 +1,6 @@
-#include "app/App.hpp"
-#include "auth/Services.hpp"
-#include "postgres.hpp"
+#include <vidanueva/app/App.hpp>
+#include <vidanueva/auth/Services.hpp>
+#include <vidanueva/postgres.hpp>
 
 int main(int argc, char** argv) {
     Wt::Dbo::backend::Postgres pg(pg_string);

@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 2.8)
 
 add_definitions(-std=c++11 -Wall -Wextra)
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 # Boost libraries
 find_package( Boost COMPONENTS system signals program_options filesystem unit_test_framework )
@@ -23,9 +24,8 @@ find_library( WT_DBO_SQLITE NAMES wtdbosqlite3d wtdbosqlite3 )
 set(WT_BASE ${WT} ${WT_HTTP} ${WT_TEST})
 set(WT_ALL ${WT_BASE} ${WT_DBO} ${WT_DBO_POSTGRES})
 
-#add_subdirectory(lib)
-add_subdirectory(auth)
-add_subdirectory(app)
+add_subdirectory(vidanueva)
+
 file(COPY
      app-root 
      doc-root 
@@ -35,6 +35,6 @@ file(COPY
      on-file-change.sh
      DESTINATION .)
 
-add_executable(vidanueva main.cpp)
-target_link_libraries(vidanueva app)
+add_executable(vida main.cpp)
+target_link_libraries(vida app page)
 

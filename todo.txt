@@ -1,3 +1,5 @@
+Make it so without the login widget showing it'll still read the login cookie.
+
 Version 1:
 
  * Styling

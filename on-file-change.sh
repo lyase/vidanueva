@@ -1,3 +1,3 @@
 #!/bin/sh
-killall vidanueva
+killall vida
 cmake .. && make -j4 && ./run.sh
