@@ -21,8 +21,9 @@ find_library( WT_TEST NAMES wttestd wttest )
 find_library( WT_DBO NAMES wtdbod wtdbo )
 find_library( WT_DBO_POSTGRES NAMES wtdbopostgresd wtdbopostgres )
 find_library( WT_DBO_SQLITE NAMES wtdbosqlite3d wtdbosqlite3 )
+find_library(WTDBOSQLITE3 NAMES wtdbosqlite3d wtdbosqlite3)
 set(WT_BASE ${WT} ${WT_HTTP} ${WT_TEST})
-set(WT_ALL ${WT_BASE} ${WT_DBO} ${WT_DBO_POSTGRES})
+set(WT_ALL ${WT_BASE} ${WT_DBO} ${WT_DBO_POSTGRES} ${WTDBO} ${WTDBOSQLITE3})
 
 add_subdirectory(vidanueva)
 
